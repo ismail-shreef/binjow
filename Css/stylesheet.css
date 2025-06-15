@@ -1,0 +1,586 @@
+        * {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            src: url('/fonts/Poppins-Black.woff') format('woff');
+        }
+
+        :root {
+            --glow-color: rgb(217, 176, 255);
+            --glow-spread-color: rgba(191, 123, 255, 0.781);
+            --enhanced-glow-color: rgb(231, 206, 255);
+            --btn-color: rgb(100, 61, 136);
+        }
+
+        body {
+            background-color: black;
+            font-family: 'Poppins';
+            width: 100%;
+            color: #ccc;
+        }
+
+        .logo {
+            color: var(--btn-color);
+            outline: none;
+            text-shadow: 0 0 0.5em var(--glow-color);
+            font-size: 2.2em;
+
+        }
+
+        .home {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .mo path {
+            fill: transparent;
+            stroke: var(--glow-spread-color);
+            stroke-width: 1;
+            stroke-dasharray: 145;
+            stroke-dashoffset: 145;
+            animation: textanimation 3s ease-in-out 1 forwards;
+        }
+
+        @keyframes textanimation {
+            0% {
+                stroke-dashoffset: 145;
+            }
+
+            80% {
+                fill: transparent;
+            }
+
+            100% {
+                fill: var(--glow-color);
+                stroke-dashoffset: 0;
+            }
+        }
+        button {
+            --glow-color: rgb(217, 176, 255);
+            --glow-spread-color: rgba(191, 123, 255, 0.781);
+            --enhanced-glow-color: rgb(231, 206, 255);
+            --btn-color: rgb(100, 61, 136);
+            border: 0.25em solid var(--glow-color);
+            padding: 2em 4em;
+            color: var(--glow-color);
+            font-size: 15px;
+            font-weight: bold;
+            background-color: var(--btn-color);
+            border-radius: 1em;
+            outline: none;
+            box-shadow: 0 0 1em 0.25em var(--glow-color),
+                0 0 4em 1em var(--glow-spread-color),
+                inset 0 0 0.75em 0.25em var(--glow-color);
+            text-shadow: 0 0 0.5em var(--glow-color);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        button::after {
+            pointer-events: none;
+            content: "";
+            position: absolute;
+            top: 110%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--glow-spread-color);
+            filter: blur(2em);
+            opacity: 0.7;
+            transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+        }
+
+        button:hover {
+            color: var(--btn-color);
+            background-color: var(--glow-spread-color);
+            box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color), inset 0 0 0.75em var(--glow-color);
+        }
+
+        .autoshow {
+            animation: autoshowanimation both;
+            animation-timeline: view(70% 5%);
+        }
+
+        @keyframes autoshowanimation {
+            from {
+                opacity: 0;
+                transform: translateY(200px) scale(0.3);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h2.title {
+            color: white;
+            font-weight: bold;
+            font-size: 3rem;
+        }
+
+        h2.title span {
+            color: var(--glow-spread-color);
+        }
+
+        h4 {
+            color: var(--glow-spread-color);
+            margin-top: 30px;
+            font-weight: 800;
+        }
+
+        .section-title {
+            color: var(--glow-spread-color);
+            font-weight: bold;
+        }
+
+        .icon {
+            color: var(--glow-spread-color);
+            width: 25px;
+            display: inline-block;
+        }
+
+        a,
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .content-list li {
+            margin-bottom: 8px;
+        }
+
+        .line {
+            width: 250px;
+            height: 3px;
+            margin: 4px;
+            background-color: var(--glow-spread-color);
+        }
+
+        .banner {
+            background-color: #000;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            font-family: 'Poppins';
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .main-text span {
+            margin: 0 5px;
+        }
+
+        .main-text .red-o {
+            color: var(--glow-spread-color);
+            font-size: 3.5rem;
+        }
+
+        .sub-text {
+            font-size: .9rem;
+            color: var(--glow-spread-color);
+            font-weight: bold;
+            /* margin-top: 3px; */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: 2.5rem;
+            }
+
+            .main-text .red-o {
+                font-size: 2.5rem;
+            }
+
+            .sub-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                width: 100%;
+            }
+
+            .main-text {
+                font-size: 1.8rem;
+            }
+
+            .main-text .red-o {
+                font-size: 1.8rem;
+            }
+
+            .sub-text {
+                font-size: 1rem;
+            }
+
+            .banner {
+                padding: 20px 0;
+            }
+        }
+
+        .winzo-title {
+            color: var(--glow-spread-color);
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        .card {
+            background-color: #222;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .card img {
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .promo {
+            background-color: var(--glow-spread-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            color: var(--glow-spread-color);
+            /* لون أحمر لـ WINZO */
+            font-family: 'Montserrat', sans-serif;
+            /* خط مميز لعنوان WINZO */
+            font-weight: 900;
+            /* أثقل */
+        }
+
+        /* responsive */
+        @media all and (max-width: 1024px) {
+            .slider .list .item .content {
+                grid-template-columns: repeat(2, 300px);
+                gap: 100px;
+            }
+
+            .mo {
+                width: 1000px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                overflow-x: hidden;
+            }
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+        
+    
+    /* خلفية النجوم */
+    .stars {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 999;
+      text-align: center;
+      margin-top: 30vh;
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* الشهب */
+    .meteor {
+      position: fixed;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, white, transparent);
+      transform: rotate(45deg);
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      animation: shoot 1s linear forwards;
+    }
+
+    @keyframes shoot {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(45deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(400px, 400px) rotate(45deg);
+      }
+    }
+    .flip-card {
+    background: transparent;
+    width: 100%;
+    height: 200px;
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #111;
+    box-shadow: 0 0 20px rgba(231, 206, 255, 0.1);
+  }
+  .flip-card-front h5,
+  .flip-card-back p {
+    font-weight: bold;
+    color: white;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+  /* العرض الكامل للـ scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* العرض في الوضع الرأسي */
+  height: 10px; /* الارتفاع في الوضع الأفقي */
+}
+
+/* المسار الخلفي (الخلفية) */
+::-webkit-scrollbar-track {
+  background: #111; /* لون خلفية المسار */
+  border-radius: 10px;
+}
+
+/* شريط التمرير نفسه */
+::-webkit-scrollbar-thumb {
+  background: var(--glow-spread-color); /* لون شريط التمرير */
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* عند التحويم */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--glow-color); /* لون أفتح عند التفاعل */
+  box-shadow: 0 0 0.7em 0.25em var(--glow-color), 0 0 1.2em 0.6em var(--glow-spread-color), inset 0 0 0.55em var(--glow-color);
+}
+
+        .category-tag {
+            background-color: rgba(248, 249, 250, 0.1);
+            /* رمادي فاتح شفاف */
+            color: #f8f9fa;
+            /* نص أبيض */
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(248, 249, 250, 0.2);
+            /* حدود فاتحة */
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #ced4da;
+            /* رمادي فاتح للنص */
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .all-designs-btn {
+            background-color: transparent;
+            color: #38b438;
+            /* أخضر مميز */
+            border: 1px solid #38b438;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .all-designs-btn:hover {
+            background-color: #38b438;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .card-category {
+            background-color: #2c2c2c;
+            /* أغمق قليلاً من الخلفية */
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .card-category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-category-header i {
+            font-size: 1.5rem;
+            color: #f8f9fa;
+            margin-left: 10px;
+            /* المسافة بين الأيقونة والعنوان */
+        }
+
+        .card-category-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+            color: #f8f9fa;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            overflow-x: auto;
+            /* للسماح بالتمرير الأفقي */
+            gap: 15px;
+            /* المسافة بين الصور */
+            padding-bottom: 10px;
+            /* لضمان ظهور شريط التمرير إذا لزم الأمر */
+            -ms-overflow-style: none;
+            /* إخفاء شريط التمرير لـ IE/Edge */
+            scrollbar-width: none;
+            /* إخفاء شريط التمرير لـ Firefox */
+        }
+
+        /* إخفاء شريط التمرير لـ Webkit (Chrome, Safari) */
+        .thumbnail-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .thumbnail-item {
+            flex: 0 0 auto;
+            /* منع الصور من الانكماش */
+            width: 200px;
+            /* عرض تقريبي لكل صورة مصغرة */
+            height: 150px;
+            /* ارتفاع تقريبي لكل صورة مصغرة */
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background-color: #444;
+            /* خلفية افتراضية للصورة */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .thumbnail-item:hover {
+            transform: translateY(-5px);
+            /* تأثير رفع بسيط عند التمرير */
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* لضمان تغطية الصورة للمساحة */
+            display: block;
+        }
+
+        /* لضمان التمرير الأفقي للبطاقات الكبيرة */
+        .row.g-4>[class*="col-"] {
+            flex-grow: 1;
+            /* لتوسيع الأعمدة */
+        }
+
+        /* تعديلات للخطوط في الوضع الداكن */
+        .text-white {
+            color: #f8f9fa !important;
+        } 
